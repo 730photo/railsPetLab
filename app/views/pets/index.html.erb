@@ -1,2 +1,6 @@
 <h1>All Pets for <%= @owner.email %></h1>
 <hr>
+
+<div>
+  <%= link_to("Pets", "/owners/#{@owner.pets}/pets") %>
+</div>

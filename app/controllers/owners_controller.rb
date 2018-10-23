@@ -9,8 +9,8 @@ class OwnersController < ApplicationController
   end
 
   def create
-    owner = Owner.create(owner_params)
-    redirect_to owner_path(owner)
+    owner = Owner.create!(owner_params)
+    redirect_to "/owners/#{@owner.id}"
   end
 
   def show
@@ -23,11 +23,15 @@ class OwnersController < ApplicationController
   end
 
   def update
-    # stretch
+    @owner = Owner.find_by( id: params[:id])
+    @owner.update(owner_params)
+    redirect_to "/owners/#{@owner.id}"
   end
 
   def destroy
-    # stretch
+    @owner = Owner.find(params[:id])
+    @owner.destroy
+    redirect_to artists_path
   end
 
 

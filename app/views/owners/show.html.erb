@@ -3,3 +3,15 @@
 <p><strong>Name:</strong> <%= @owner.first_name %> <%= @owner.last_name %></p>
 <p><strong>Email:</strong> <%= @owner.email %></p>
 <p><strong>Phone Number:</strong> <%= @owner.phone %></p>
+
+<div>
+<button><%= link_to("View this owner's pets", "/owners/#{@owner.id}/pets") %></button>
+</div>
+
+<div>
+<button><%= link_to("update", "/owners/" + @owner.id.to_s + "/edit", method: :get) %></button>
+<div>
+
+</div>
+<button><%= link_to("Destroy", "/owners/"+@owner.id.to_s, method: :delete) %></button>
+</div>
